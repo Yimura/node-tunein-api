@@ -3,6 +3,9 @@ const Station = require('./Station');
 class SearchResults {
     // episodes = [];
     // podcasts = [];
+    /**
+     * @type {Station[]}
+     */
     stations = [];
 
     constructor(body) {

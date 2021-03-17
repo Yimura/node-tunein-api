@@ -3,10 +3,13 @@ const { get } = require('https');
 const SearchResults = require('./SearchResults');
 
 class TuneInWrapper {
-    constructor() {
+    constructor() {}
 
-    }
-
+     /**
+      * @private
+      * @param {string} query 
+      * @returns {string}
+      */
     _search(query) {
         TuneIn.url.search = new URLSearchParams(
             Object.assign({ query }, TuneIn.searchParams)
@@ -25,7 +28,9 @@ class TuneInWrapper {
     }
 
     /**
+     * 
      * @param {string} query 
+     * @returns {SearchResults}
      */
     async search(query) {
         const data = JSON.parse(
