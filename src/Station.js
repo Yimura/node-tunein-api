@@ -1,8 +1,8 @@
 const { RadioTime } = require('./Constants');
-const { get } = require('https');
+const { get } = require('./Data');
 
 class Station {
-    radioUrl = null
+    radioUrl = null;
 
     constructor(data) {
         this.id = data.GuideId;
@@ -13,22 +13,13 @@ class Station {
 
     async getRadioURL() {
         if (!this.radioUrl) {
-            const json = await new Promise((resolve, reject) => {
-                RadioTime.url.search = new URLSearchParams({ id: this.id }, RadioTime.searchParams);
+            RadioTime.url.search = new URLSearchParams(
+                Object.assign({ id: this.id }, RadioTime.searchParams)
+            );
 
-                get(RadioTime.url, (r) => {
-                    r.setEncoding('utf8');
-
-                    let d = '';
-
-                    r.on('data', c => d += c);
-                    r.on('end', () => resolve(d));
-                }).on('error', reject);
-            });
-
-            // console.log(json);
-
-            this.radioUrl = json;
+            this.radioUrl = JSON.parse(
+                await get(RadioTime.url)
+            );
         }
 
         return this.radioUrl;

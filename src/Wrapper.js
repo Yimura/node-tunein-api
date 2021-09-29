@@ -1,5 +1,5 @@
 const { TuneIn } = require('./Constants');
-const { get } = require('https');
+const { get } = require('./Data')
 const SearchResults = require('./SearchResults');
 
 class TuneInWrapper {
@@ -15,16 +15,7 @@ class TuneInWrapper {
             Object.assign({ query }, TuneIn.searchParams)
         );
 
-        return new Promise((resolve, reject) => {
-            get(TuneIn.url, (r) => {
-                r.setEncoding('utf8');
-
-                let d = '';
-
-                r.on('data', c => d += c);
-                r.on('end', () => resolve(d));
-            }).on('error', reject);
-        });
+        return get(TuneIn.url);
     }
 
     /**
