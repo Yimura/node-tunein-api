@@ -4,6 +4,7 @@ This a very small **Unofficial** TuneIn API wrapper, it aims at providing bare m
 
 ## How To Use
 
+### CommonJS
 ```js
 const TuneIn = new (require('node-tunein-api'))();
 
