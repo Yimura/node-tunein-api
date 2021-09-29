@@ -1,5 +1,5 @@
 {
-  "name": "tunein",
+  "name": "node-tunein-api",
   "version": "0.1.0",
   "description": "Unofficial TuneIn API Wrapper",
   "main": "index.js",
