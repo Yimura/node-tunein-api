@@ -4,13 +4,21 @@
   "description": "Unofficial TuneIn API Wrapper",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
     "test": "node test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yimura/node-tunein-api.git"
+  },
   "keywords": [
+    "api",
     "tunein",
-    "api"
+    "wrapper"
   ],
   "author": "yimura",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yimura/node-tunein-api/issues"
+  },
+  "homepage": "https://github.com/Yimura/node-tunein-api#readme"
 }
